@@ -7,7 +7,7 @@ import 'package:islami_applacation/home/tabs/ahadis.dart';
 import 'package:islami_applacation/home/tabs/radioTab.dart';
 import 'package:islami_applacation/home/tabs/sebhaTab.dart';
 
-import 'home/tabs/Settings.dart';
+import '../home/tabs/Settings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -52,15 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.all(16),
                 tabs: [
                   GButton(
-                    icon: Icons.menu_book,
+                    icon:FlutterIslamicIcons.quran,
                     text: 'Quran',
                   ),
                   GButton(
-                    icon: Icons.front_hand_sharp,
+                    icon:FlutterIslamicIcons.tasbih
+                    ,
                     text: 'Sebha',
                   ),
                   GButton(
-                    icon: Icons.auto_stories,
+                    icon:FlutterIslamicIcons.quran2,
                     text: 'ahadith',
                   ),
                   GButton(
