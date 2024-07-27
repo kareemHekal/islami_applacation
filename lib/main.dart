@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami_applacation/home_screen.dart';
+import 'package:islami_applacation/screens/home_screen.dart';
 import 'package:islami_applacation/theme_App_data.dart';
+
+import 'Sura_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme:Theme_app_data.lightTheme,
-      home:HomeScreen(),
+      initialRoute: '/HomeScreen',
+
+      routes:{
+        '/HomeScreen' :(context) => HomeScreen(),
+        '/SuraDetails' : (context)=> SuraDetails()
+      },
     );
   }
 }
