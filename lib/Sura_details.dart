@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_applacation/Sura_model.dart';
+
+import 'colors_APP.dart';
 
 class SuraDetails extends StatefulWidget {
   SuraDetails({super.key});
@@ -29,7 +32,7 @@ class _SuraDetailsState extends State<SuraDetails> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              model.name,
+              ("Quran"),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -37,41 +40,55 @@ class _SuraDetailsState extends State<SuraDetails> {
             future: _versesFuture,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: ListView.builder(
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                          left: 16,
-                          right: 16,
-                          bottom: 8,
-                        ),
-                        child: Card(
-                          // remember to make it var
-                          color: Colors.white,
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: " {${index + 1}} ",
-                                  style: TextStyle(
-                                      fontSize: 35, color: Colors.black),
-                                ),
-                                TextSpan(
-                                  text: snapshot.data![index],
-                                  style: TextStyle(
-                                      fontSize: 35, color: Colors.black),
-                                ),
-                              ],
+                return Column(
+                  children: [
+                    Center(
+                        child: Text(model.name,
+                            style: GoogleFonts.elMessiri(
+                              fontSize: 30,
+                            ))),
+                    Divider(
+                      color: app_colors.brown,
+                      thickness: 3,
+                      endIndent: 100,
+                      indent: 100,
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                              left: 16,
+                              right: 16,
+                              bottom: 8,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      );
-                    },
-                    itemCount: snapshot.data!.length,
-                  ),
+                            child: Card(
+                              // remember to make it var
+                              color: Colors.transparent,
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: " {${index + 1}} ",
+                                      style: TextStyle(
+                                          fontSize: 35, color: Colors.black),
+                                    ),
+                                    TextSpan(
+                                      text: snapshot.data![index],
+                                      style: TextStyle(
+                                          fontSize: 35, color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          );
+                        },
+                        itemCount: snapshot.data!.length,
+                      ),
+                    ),
+                  ],
                 );
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');

@@ -3,6 +3,7 @@ import 'package:islami_applacation/screens/home_screen.dart';
 import 'package:islami_applacation/theme_App_data.dart';
 
 import 'Sura_details.dart';
+import 'hadith_Details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
 
       routes:{
         '/HomeScreen' :(context) => HomeScreen(),
-        '/SuraDetails' : (context)=> SuraDetails()
+        '/SuraDetails' : (context)=> SuraDetails(),
+        '/HadithDetails': (context) => HadithDetails()
       },
     );
   }
