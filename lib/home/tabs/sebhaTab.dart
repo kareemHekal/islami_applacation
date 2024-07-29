@@ -11,19 +11,12 @@ class Sebhatab extends StatefulWidget {
 
 class _SebhatabState extends State<Sebhatab> {
   int Counter = 0;
-  int index = 0;
   double angle = 0;
-  List<String> Azkar = [
-    " سبحان الله ",
-    " الحمدالله ",
-    " الله اكبر ",
-    " لا الله الا الله ",
-    " لا حول ولا قوه الا بالله ",
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Stack(
@@ -67,26 +60,53 @@ class _SebhatabState extends State<Sebhatab> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 30.0),
-          child: Center(
-            child: InkWell(
-              onTap: () {
-                onTap();
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: app_colors.brown,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Text("${Azkar[index]}",
-                      style: GoogleFonts.elMessiri(
-                          fontSize: 30, fontWeight: FontWeight.bold)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Center(
+                child: InkWell(
+                  onTap: () {
+                    onTap();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: app_colors.brown,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Text("اضغط",
+                          style: GoogleFonts.elMessiri(
+                              fontSize: 30, fontWeight: FontWeight.bold)),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Center(
+                child: InkWell(
+                  onTap: () {
+                    Counter = 0;
+                    setState(() {});
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: app_colors.brown,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Text("اعاده البدء",
+                          style: GoogleFonts.elMessiri(
+                              fontSize: 30, fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -94,14 +114,6 @@ class _SebhatabState extends State<Sebhatab> {
 
   onTap() {
     Counter++;
-    if (Counter % 33 == 0) {
-      index++;
-      Counter = 0;
-    }
-    if (index == Azkar.length) {
-      index = 0;
-    }
-    angle += 360 / 4;
     setState(() {});
   }
 }

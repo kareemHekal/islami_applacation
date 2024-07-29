@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
-                    icon:FlutterIslamicIcons.tasbih
+                    icon:FlutterIslamicIcons.solidTasbihHand
                     ,
                     text: 'Sebha',
                       textStyle: TextStyle(fontSize: 20)
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
-                    icon: FlutterIslamicIcons.solidTasbihHand
+                    icon: FlutterIslamicIcons.prayer
                     ,
                     text: ' Azkar',
                       textStyle: TextStyle(fontSize: 20)
