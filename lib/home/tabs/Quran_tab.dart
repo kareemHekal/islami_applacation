@@ -128,6 +128,123 @@ class _QuranTabState extends State<QuranTab> {
     "الناس"
   ];
 
+  List<String> numberOfAyaat = [
+    "7",
+    "286",
+    "200",
+    "176",
+    "120",
+    "165",
+    "206",
+    "75",
+    "129",
+    "109",
+    "123",
+    "111",
+    "43",
+    "52",
+    "99",
+    "128",
+    "111",
+    "110",
+    "98",
+    "135",
+    "112",
+    "78",
+    "118",
+    "64",
+    "77",
+    "227",
+    "93",
+    "88",
+    "69",
+    "60",
+    "34",
+    "30",
+    "73",
+    "54",
+    "45",
+    "70",
+    "182",
+    "88",
+    "75",
+    "85",
+    "54",
+    "53",
+    "89",
+    "59",
+    "37",
+    "35",
+    "38",
+    "29",
+    "18",
+    "45",
+    "60",
+    "49",
+    "62",
+    "55",
+    "78",
+    "96",
+    "29",
+    "22",
+    "24",
+    "13",
+    "14",
+    "11",
+    "11",
+    "18",
+    "12",
+    "12",
+    "30",
+    "52",
+    "52",
+    "44",
+    "28",
+    "28",
+    "20",
+    "56",
+    "40",
+    "31",
+    "50",
+    "40",
+    "46",
+    "42",
+    "29",
+    "19",
+    "36",
+    "25",
+    "22",
+    "17",
+    "19",
+    "26",
+    "23",
+    "20",
+    "15",
+    "21",
+    "11",
+    "8",
+    "8",
+    "19",
+    "5",
+    "8",
+    "8",
+    "11",
+    "11",
+    "8",
+    "3",
+    "9",
+    "5",
+    "4",
+    "7",
+    "3",
+    "6",
+    "3",
+    "5",
+    "4",
+    "5",
+    "6"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -135,91 +252,158 @@ class _QuranTabState extends State<QuranTab> {
       children: [
         Image.asset(
           "assets/images/qur2an_screen_logo.png",
-          height: 227,
+          height: 277,
         ),
-        const Divider(
-          thickness: 3,
-          color: app_colors.brown,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Table(
+          border: TableBorder.all(color: app_colors.brown, width: 5),
           children: [
-            Expanded(
-              child: Text(
-                " Sura Names ",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.elMessiri(
-                    fontSize: 25, fontWeight: FontWeight.w600),
+            TableRow(children: [
+              TableCell(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "عدد الآيات",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
-            ),
-            IconButton(
-                alignment: Alignment.bottomLeft,
-                onPressed: () {
-                  showSearch(
-                    context: context,
-                    delegate: CustomSearchDelegate(),
-                  );
-                },
-                icon: const Icon(
-                  Icons.search,
-                  color: app_colors.brown,
-                )),
+              TableCell(
+                  child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "اسم السورة",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.w600),
+                  textAlign: TextAlign.center,
+                ),
+              )),
+            ]),
           ],
-        ),
-        const Divider(
-          thickness: 3,
-          color: app_colors.brown,
         ),
         Expanded(
           child: ListView.builder(
-              itemCount: SuraNames.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    GestureDetector(
-                      child: Text(
-                        SuraNames[index],
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.elMessiri(
-                            fontSize: 25, fontWeight: FontWeight.w600),
-                      ),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/SuraDetails',
-                            arguments: SuraModel(index, SuraNames[index]));
-                      },
-                    ),
-                    const Row(
-                      children: [
-                        Expanded(
-                            child: Icon(
-                          Icons.star_border_purple500_sharp,
-                          color: app_colors.brown,
-                        )),
-                        Expanded(
-                          flex: 2,
-                          child: Divider(
-                            thickness: 2,
-                            color: app_colors.brown,
-                          ),
+            itemCount: SuraNames.length,
+            itemBuilder: (context, index) {
+              return Table(
+                border: TableBorder.all(color: app_colors.brown, width: 2),
+                children: [
+                  TableRow(children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              child: Text(
+                                numberOfAyaat[index],
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.w600),
+                                textAlign: TextAlign.center,
+                              ),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/SuraDetails',
+                                    arguments:
+                                        SuraModel(index, SuraNames[index]));
+                              },
+                            ),
+                            const Row(
+                              children: [
+                                Expanded(
+                                    child: Icon(
+                                  Icons.star_border_purple500_sharp,
+                                  color: app_colors.brown,
+                                )),
+                                Expanded(
+                                  flex: 2,
+                                  child: Divider(
+                                    thickness: 2,
+                                    color: app_colors.brown,
+                                  ),
+                                ),
+                                Expanded(
+                                    child: Icon(
+                                  Icons.star_border_purple500_sharp,
+                                  color: app_colors.brown,
+                                )),
+                              ],
+                            )
+                          ],
                         ),
-                        Expanded(
-                            child: Icon(
-                          Icons.star_border_purple500_sharp,
-                          color: app_colors.brown,
-                        )),
-                      ],
-                    )
-                  ],
-                );
-              }),
-        )
+                        onTap: () {
+                          Navigator.pushNamed(context, '/SuraDetails',
+                              arguments: SuraModel(index, SuraNames[index]));
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/SuraDetails',
+                              arguments: SuraModel(index, SuraNames[index]));
+                        },
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              child: Text(
+                                SuraNames[index],
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.w600),
+                                textAlign: TextAlign.center,
+                              ),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/SuraDetails',
+                                    arguments:
+                                        SuraModel(index, SuraNames[index]));
+                              },
+                            ),
+                            const Row(
+                              children: [
+                                Expanded(
+                                    child: Icon(
+                                  Icons.star_border_purple500_sharp,
+                                  color: app_colors.brown,
+                                )),
+                                Expanded(
+                                  flex: 2,
+                                  child: Divider(
+                                    thickness: 2,
+                                    color: app_colors.brown,
+                                  ),
+                                ),
+                                Expanded(
+                                    child: Icon(
+                                  Icons.star_border_purple500_sharp,
+                                  color: app_colors.brown,
+                                )),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ]),
+                ],
+              );
+            },
+          ),
+        ),
       ],
     );
   }
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-
   List<String> searchTerms = [
     "الفاتحه",
     "البقرة",
@@ -340,8 +524,8 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
-        appBarTheme:
-            const AppBarTheme(toolbarHeight: 70, backgroundColor: app_colors.brown));
+        appBarTheme: const AppBarTheme(
+            toolbarHeight: 70, backgroundColor: app_colors.brown));
   }
 
   @override
@@ -465,16 +649,16 @@ class CustomSearchDelegate extends SearchDelegate {
                           arguments: SuraModel(
                               index,
                               matchQuery[
-                              index])); // Use matchQuery[index] instead of searchTerms[index]
+                                  index])); // Use matchQuery[index] instead of searchTerms[index]
                     },
                   ),
                   const Row(
                     children: [
                       Expanded(
                           child: Icon(
-                            Icons.star_border_purple500_sharp,
-                            color: app_colors.brown,
-                          )),
+                        Icons.star_border_purple500_sharp,
+                        color: app_colors.brown,
+                      )),
                       Expanded(
                         flex: 2,
                         child: Divider(
@@ -484,9 +668,9 @@ class CustomSearchDelegate extends SearchDelegate {
                       ),
                       Expanded(
                           child: Icon(
-                            Icons.star_border_purple500_sharp,
-                            color: app_colors.brown,
-                          )),
+                        Icons.star_border_purple500_sharp,
+                        color: app_colors.brown,
+                      )),
                     ],
                   )
                 ],
