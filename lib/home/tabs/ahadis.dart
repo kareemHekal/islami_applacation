@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../colors_APP.dart';
-import '../../hadith model.dart';
+import '../../hadith branch/hadith model.dart';
 
 class AhadisTab extends StatefulWidget {
 

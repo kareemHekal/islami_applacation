@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islami_applacation/Sura_model.dart';
+import 'package:islami_applacation/quran%20branch/Sura_model.dart';
 
-import 'colors_APP.dart';
+import '../colors_APP.dart';
 
 class SuraDetails extends StatefulWidget {
   SuraDetails({super.key});
@@ -18,9 +18,7 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if (_versesFuture == null) {
-      _versesFuture = loadSuraFile(model.index);
-    }
+    _versesFuture ??= loadSuraFile(model.index);
     return Stack(
       children: [
         Image.asset(
@@ -31,9 +29,8 @@ class _SuraDetailsState extends State<SuraDetails> {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               ("Quran"),
-              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           body: FutureBuilder(
@@ -47,7 +44,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                             style: GoogleFonts.elMessiri(
                               fontSize: 30,
                             ))),
-                    Divider(
+                    const Divider(
                       color: app_colors.brown,
                       thickness: 3,
                       endIndent: 100,
@@ -62,20 +59,22 @@ class _SuraDetailsState extends State<SuraDetails> {
                               right: 16,
                               bottom: 8,
                             ),
-                            child: Card(
-                              // remember to make it var
-                              color: Colors.transparent,
+                            child: Card(elevation: 10, // adds a shadow to the entire card
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),),
+
+                              color: Colors.white70,
                               child: RichText(
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
                                       text: " {${index + 1}} ",
-                                      style: TextStyle(
-                                          fontSize: 35, color: Colors.black),
+                                      style:  TextStyle(
+                                          fontSize: 30, color: Colors.black),
                                     ),
                                     TextSpan(
                                       text: snapshot.data![index],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 35, color: Colors.black),
                                     ),
                                   ],
@@ -93,7 +92,7 @@ class _SuraDetailsState extends State<SuraDetails> {
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               } else {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
             },
           ),

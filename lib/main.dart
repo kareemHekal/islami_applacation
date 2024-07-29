@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami_applacation/screens/home_screen.dart';
 import 'package:islami_applacation/theme_App_data.dart';
 
-import 'Sura_details.dart';
-import 'hadith_Details.dart';
+import 'quran branch/Sura_details.dart';
+import 'hadith branch/hadith_Details.dart';
 
 void main() {
   runApp(const MyApp());
