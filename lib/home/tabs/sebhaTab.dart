@@ -68,27 +68,6 @@ class _SebhatabState extends State<Sebhatab> {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    onTap();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: app_colors.brown,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Text("اضغط",
-                          style: GoogleFonts.elMessiri(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Center(
-                child: InkWell(
-                  onTap: () {
                     Counter = 0;
                     setState(() {});
                   },
@@ -106,6 +85,28 @@ class _SebhatabState extends State<Sebhatab> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Center(
+                child: InkWell(
+                  onTap: () {
+                    onTap();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: app_colors.brown,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Text("اضغط",
+                          style: GoogleFonts.elMessiri(
+                              fontSize: 30, fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ],
