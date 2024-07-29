@@ -32,6 +32,23 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: const Text("Islami"),
+          actions: [
+            IconButton(
+              color: Colors.white70,
+                alignment: Alignment.bottomLeft,
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                    delegate: CustomSearchDelegate(),
+                  );
+                },
+                icon: const Icon(
+                  Icons.search,
+                  size: 40,
+
+                  color: app_colors.brown,
+                )),
+          ],
           ),
           bottomNavigationBar: Container(
             color: app_colors.brown,
