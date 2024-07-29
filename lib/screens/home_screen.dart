@@ -7,7 +7,7 @@ import 'package:islami_applacation/home/tabs/ahadis.dart';
 import 'package:islami_applacation/home/tabs/radioTab.dart';
 import 'package:islami_applacation/home/tabs/sebhaTab.dart';
 
-import '../home/tabs/Settings.dart';
+import '../home/tabs/Azkar_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -50,28 +50,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: app_colors.white,
               tabBackgroundColor: app_colors.white,
                 padding: EdgeInsets.all(16),
-                tabs: [
+                tabs: const [
                   GButton(
                     icon:FlutterIslamicIcons.quran,
                     text: 'Quran',
+                      textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
                     icon:FlutterIslamicIcons.tasbih
                     ,
                     text: 'Sebha',
+                      textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
                     icon:FlutterIslamicIcons.quran2,
                     text: 'ahadith',
+                      textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
                     icon: Icons.radio,
                     text: 'Radio',
+                      textStyle: TextStyle(fontSize: 20)
                   ),
                   GButton(
-                    icon: Icons.
-                    settings,
-                    text: ' settings',
+                    icon: FlutterIslamicIcons.solidTasbihHand
+                    ,
+                    text: ' Azkar',
+                      textStyle: TextStyle(fontSize: 20)
                   ),
                 ],
               ),
@@ -87,8 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
 List<Widget>Tabs = [
 QuranTab(),
-  Sebhatab(),
+  const Sebhatab(),
   AhadisTab(),
-  RadioTab(),
-  SettingsTab(),
+  const RadioTab(),
+  const Azkar_tab(),
 ];

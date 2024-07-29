@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_applacation/colors_APP.dart';
-import 'package:islami_applacation/hadith%20model.dart';
+import 'package:islami_applacation/hadith%20branch/hadith%20model.dart';
 
 class HadithDetails extends StatelessWidget {
   const HadithDetails({super.key});
@@ -41,7 +41,11 @@ class HadithDetails extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
-                        color: Colors.transparent,
+                        elevation: 10, // adds a shadow to the entire card
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),),
+
+                        color: Colors.white70,
                           child: Text(model.Contant[index],textAlign:TextAlign.right,style: GoogleFonts.elMessiri(fontSize: 30,))),
                     );
                   },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_applacation/Sura_model.dart';
+import 'package:islami_applacation/quran%20branch/Sura_model.dart';
 import 'package:islami_applacation/colors_APP.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -160,7 +160,7 @@ class _QuranTabState extends State<QuranTab> {
                     delegate: CustomSearchDelegate(),
                   );
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.search,
                   color: app_colors.brown,
                 )),
@@ -196,11 +196,11 @@ class _QuranTabState extends State<QuranTab> {
                           color: app_colors.brown,
                         )),
                         Expanded(
+                          flex: 2,
                           child: Divider(
                             thickness: 2,
                             color: app_colors.brown,
                           ),
-                          flex: 2,
                         ),
                         Expanded(
                             child: Icon(
@@ -341,7 +341,7 @@ class CustomSearchDelegate extends SearchDelegate {
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
         appBarTheme:
-            AppBarTheme(toolbarHeight: 70, backgroundColor: app_colors.brown));
+            const AppBarTheme(toolbarHeight: 70, backgroundColor: app_colors.brown));
   }
 
   @override
@@ -410,11 +410,11 @@ class CustomSearchDelegate extends SearchDelegate {
                         color: app_colors.brown,
                       )),
                       Expanded(
+                        flex: 2,
                         child: Divider(
                           thickness: 2,
                           color: app_colors.brown,
                         ),
-                        flex: 2,
                       ),
                       Expanded(
                           child: Icon(
@@ -476,11 +476,11 @@ class CustomSearchDelegate extends SearchDelegate {
                             color: app_colors.brown,
                           )),
                       Expanded(
+                        flex: 2,
                         child: Divider(
                           thickness: 2,
                           color: app_colors.brown,
                         ),
-                        flex: 2,
                       ),
                       Expanded(
                           child: Icon(

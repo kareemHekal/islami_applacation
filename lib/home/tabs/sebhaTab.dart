@@ -51,7 +51,8 @@ class _SebhatabState extends State<Sebhatab> {
             child: InkWell(
               onTap: () {},
               child: Container(
-width: 80         ,    decoration: BoxDecoration(
+                width: 80,
+                decoration: BoxDecoration(
                     color: app_colors.brown,
                     borderRadius: BorderRadius.circular(30)),
                 child: Padding(
@@ -100,10 +101,7 @@ width: 80         ,    decoration: BoxDecoration(
     if (index == Azkar.length) {
       index = 0;
     }
-
     angle += 360 / 4;
-    setState(() {
-      ;
-    });
+    setState(() {});
   }
 }
