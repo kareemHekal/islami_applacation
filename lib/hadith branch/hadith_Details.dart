@@ -19,7 +19,7 @@ class HadithDetails extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text("Ahadith"),
+            title: Text("Ahadith",style:  Theme.of(context).textTheme.bodySmall,),
           ),
           body: Column(
             children: [
@@ -46,7 +46,7 @@ class HadithDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),),
 
                         color: Colors.white70,
-                          child: Text(model.Contant[index],textAlign:TextAlign.right,style: GoogleFonts.elMessiri(fontSize: 30,))),
+                          child: Text(model.Contant[index],textAlign:TextAlign.right,style: Theme.of(context).textTheme.bodySmall)),
                     );
                   },
                 ),

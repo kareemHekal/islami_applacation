@@ -39,28 +39,30 @@ class _SebhatabState extends State<Sebhatab> {
                 padding: const EdgeInsets.only(top: 27),
                 child: Text("عدد التسبيحات",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.elMessiri(
-                        fontSize: 30, fontWeight: FontWeight.bold)),
+                    style: Theme.of(context).textTheme.bodySmall),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 26.0),
                 child: Center(
                   child: InkWell(
                     onTap: () {},
-                    child: Container(
-                      width: 80,
-                      decoration: BoxDecoration(
-                          color: app_colors.brown,
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Center(
-                          child: Text("$Counter",
-                              style: GoogleFonts.elMessiri(
-                                  fontSize: 30, fontWeight: FontWeight.bold)),
-                        ),
-                      ),
-                    ),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Container(
+                          width: constraints.maxWidth * 0.2, // 20% of the screen width
+                          decoration: BoxDecoration(
+                              color: app_colors.brown,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Center(
+                              child: Text("$Counter",
+                                  style: Theme.of(context).textTheme.bodySmall),
+                            ),
+                          ),
+                        );
+                      },
+                    )
                   ),
                 ),
               ),
@@ -82,8 +84,7 @@ class _SebhatabState extends State<Sebhatab> {
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
                             child: Text("اعاده البدء",
-                                style: GoogleFonts.elMessiri(
-                                    fontSize: 30, fontWeight: FontWeight.bold)),
+                                style:  Theme.of(context).textTheme.bodySmall),
                           ),
                         ),
                       ),
@@ -103,8 +104,7 @@ class _SebhatabState extends State<Sebhatab> {
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
                             child: Text("اضغط",
-                                style: GoogleFonts.elMessiri(
-                                    fontSize: 30, fontWeight: FontWeight.bold)),
+                                style: Theme.of(context).textTheme.bodySmall),
                           ),
                         ),
                       ),

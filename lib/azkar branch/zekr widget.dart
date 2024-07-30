@@ -35,7 +35,7 @@ class _ZekrWigetState extends State<ZekrWiget> {
                     child: ListView(
                       children: [Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(widget.zekr,textAlign: TextAlign.center,),
+                        child: Text(widget.zekr,textAlign: TextAlign.center,style:  Theme.of(context).textTheme.bodySmall,),
                       )],
                     ),
                     decoration: BoxDecoration(
@@ -88,7 +88,7 @@ class _ZekrWigetState extends State<ZekrWiget> {
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.only(right: 12,left: 12),
-                            child: Text("$Counter / ${widget.repete}",style: Theme.of(context).textTheme.bodyLarge,),
+                            child: Text("$Counter / ${widget.repete}",style: Theme.of(context).textTheme.bodySmall,),
                           )),
                           decoration: BoxDecoration(
                             color: Colors.white,

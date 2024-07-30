@@ -244,7 +244,7 @@ class _QuranTabState extends State<QuranTab> {
     "6"
   ];
 
-  @override
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -267,7 +267,7 @@ class _QuranTabState extends State<QuranTab> {
                         "عدد الآيات",
                         style: Theme.of(context)
                             .textTheme
-                            .bodyMedium
+                            .bodySmall
                             ?.copyWith(fontWeight: FontWeight.w600),
                         textAlign: TextAlign.center,
                       ),
@@ -280,7 +280,7 @@ class _QuranTabState extends State<QuranTab> {
                           "اسم السورة",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyMedium
+                              .bodySmall
                               ?.copyWith(fontWeight: FontWeight.w600),
                           textAlign: TextAlign.center,
                         ),
@@ -306,7 +306,7 @@ class _QuranTabState extends State<QuranTab> {
                                       numberOfAyaat[i],
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyMedium
+                                          .bodySmall
                                           ?.copyWith(fontWeight: FontWeight.w600),
                                       textAlign: TextAlign.center,
                                     ),
@@ -358,7 +358,7 @@ class _QuranTabState extends State<QuranTab> {
                                       SuraNames[i],
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyMedium
+                                          .bodySmall
                                           ?.copyWith(fontWeight: FontWeight.w600),
                                       textAlign: TextAlign.center,
                                     ),

@@ -32,7 +32,7 @@ class _ZekrDetailsState extends State<ZekrDetails> {
         ),
         Scaffold(
           appBar: AppBar(
-
+title: Text("اسلامي",style:  Theme.of(context).textTheme.bodySmall,),
           ),
           body: Column(
             children: [

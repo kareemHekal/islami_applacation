@@ -29,8 +29,8 @@ class _SuraDetailsState extends State<SuraDetails> {
         ),
         Scaffold(
           appBar: AppBar(
-            title: const Text(
-              ("Quran"),
+            title: Text(
+              (" Quran "),
             ),
           ),
           body: FutureBuilder(
@@ -41,9 +41,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                   children: [
                     Center(
                         child: Text(model.name,
-                            style: GoogleFonts.elMessiri(
-                              fontSize: 30,
-                            ))),
+                            style:  Theme.of(context).textTheme.bodySmall)),
                     const Divider(
                       color: app_colors.brown,
                       thickness: 3,
@@ -59,9 +57,11 @@ class _SuraDetailsState extends State<SuraDetails> {
                               right: 16,
                               bottom: 8,
                             ),
-                            child: Card(elevation: 10, // adds a shadow to the entire card
+                            child: Card(
+                              elevation: 10, // adds a shadow to the entire card
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
 
                               color: Colors.white70,
                               child: RichText(
@@ -69,13 +69,11 @@ class _SuraDetailsState extends State<SuraDetails> {
                                   children: [
                                     TextSpan(
                                       text: " {${index + 1}} ",
-                                      style:  TextStyle(
-                                          fontSize: 30, color: Colors.black),
+                                      style:  Theme.of(context).textTheme.bodySmall
                                     ),
                                     TextSpan(
                                       text: snapshot.data![index],
-                                      style: const TextStyle(
-                                          fontSize: 35, color: Colors.black),
+                                      style: Theme.of(context).textTheme.bodyMedium
                                     ),
                                   ],
                                 ),
