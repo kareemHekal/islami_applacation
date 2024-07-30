@@ -16,105 +16,114 @@ class _SebhatabState extends State<Sebhatab> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            Image.asset("assets/images/head_sebha_logo.png"),
-            Padding(
-              padding: const EdgeInsets.only(top: 75),
-              child: Transform.rotate(
-                  angle: angle,
-                  child: Image.asset("assets/images/body_sebha_logo.png")),
-            ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 27),
-          child: Text("عدد التسبيحات",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.elMessiri(
-                  fontSize: 30, fontWeight: FontWeight.bold)),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 26.0),
-          child: Center(
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                width: 80,
-                decoration: BoxDecoration(
-                    color: app_colors.brown,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Center(
-                    child: Text("$Counter",
-                        style: GoogleFonts.elMessiri(
-                            fontSize: 30, fontWeight: FontWeight.bold)),
+        Expanded(
+          flex: 4,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Image.asset("assets/images/head_sebha_logo.png"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 75),
+                    child: Transform.rotate(
+                        angle: angle,
+                        child: Image.asset("assets/images/body_sebha_logo.png")),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 27),
+                child: Text("عدد التسبيحات",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.elMessiri(
+                        fontSize: 30, fontWeight: FontWeight.bold)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 26.0),
+                child: Center(
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 80,
+                      decoration: BoxDecoration(
+                          color: app_colors.brown,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Center(
+                          child: Text("$Counter",
+                              style: GoogleFonts.elMessiri(
+                                  fontSize: 30, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          Counter = 0;
+                          setState(() {});
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: app_colors.brown,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Text("اعاده البدء",
+                                style: GoogleFonts.elMessiri(
+                                    fontSize: 30, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          onTap();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: app_colors.brown,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Text("اضغط",
+                                style: GoogleFonts.elMessiri(
+                                    fontSize: 30, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Center(
-                child: InkWell(
-                  onTap: () {
-                    Counter = 0;
-                    setState(() {});
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: app_colors.brown,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Text("اعاده البدء",
-                          style: GoogleFonts.elMessiri(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Center(
-                child: InkWell(
-                  onTap: () {
-                    onTap();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: app_colors.brown,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Text("اضغط",
-                          style: GoogleFonts.elMessiri(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-          ],
-        ),
+        Expanded(child: SizedBox())
       ],
     );
   }
 
   onTap() {
     Counter++;
+    angle += 360 / 4;
     setState(() {});
   }
 }

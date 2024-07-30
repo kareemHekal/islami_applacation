@@ -28,6 +28,45 @@ class _ZekrWigetState extends State<ZekrWiget> {
           child: Row(
             children: [
 // this is the counter===================
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 6,bottom: 6,left: 12,right: 6),
+                  child: Container(
+                    child: ListView(
+                      children: [Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(widget.zekr,textAlign: TextAlign.center,),
+                      )],
+                    ),
+                    decoration: BoxDecoration(
+                      color: app_colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: Offset(0, 1), // changes position of shadow
+                        ),
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          spreadRadius: 1,
+                          blurRadius: 3,
+                          offset: Offset(0, 1), // changes position of shadow
+                        ),
+                      ],
+
+                    ),
+
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Column(
@@ -82,45 +121,7 @@ class _ZekrWigetState extends State<ZekrWiget> {
                   ],
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Container(
-                    child: ListView(
-                      children: [Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(widget.zekr,textAlign: TextAlign.center,),
-                      )],
-                    ),
-                    decoration: BoxDecoration(
-                        color: app_colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 1,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
 
-                    ),
-
-                  ),
-                ),
-              )
             ],
           ),
         ),

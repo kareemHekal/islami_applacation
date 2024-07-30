@@ -23,65 +23,69 @@ class _AhadisTabState extends State<AhadisTab> {
     loadHadisFile();
   }
   @override
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Image.asset(height: 219, "assets/images/hadeth_logo.png"),
-        const Divider(
-          thickness: 3,
-          color: app_colors.brown,
-        ),
-        Center(
-            child: Text("Ahadeth", style: GoogleFonts.elMessiri(fontSize: 30))),
-        const Divider(
-          thickness: 3,
-          color: app_colors.brown,
-        ),
-        Expanded(
-          child: ListView.builder(
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset(height: 219, "assets/images/hadeth_logo.png"),
+          const Divider(
+            thickness: 3,
+            color: app_colors.brown,
+          ),
+          Center(
+              child: Text("Ahadeth", style: GoogleFonts.elMessiri(fontSize: 30))),
+          const Divider(
+            thickness: 3,
+            color: app_colors.brown,
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             itemCount: All_Ahadith.length,
             itemBuilder:(context, index) {
-            return Column(
-              children: [
-                GestureDetector(
-                  child: Text(
-                    All_Ahadith[index].Title,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.elMessiri(
-                        fontSize: 25, fontWeight: FontWeight.w600),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/HadithDetails',
-                    arguments: All_Ahadith[index]);
-                  },
-                ),
-                const Row(
-                  children: [
-                    Expanded(
-                        child: Icon(
-                          Icons.star_border_purple500_sharp,
-                          color: app_colors.brown,
-                        )),
-                    Expanded(
-                      child: Divider(
-                        thickness: 2,
-                        color: app_colors.brown,
-                      ),
-                      flex: 2,
+              return Column(
+                children: [
+                  GestureDetector(
+                    child: Text(
+                      All_Ahadith[index].Title,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.elMessiri(
+                          fontSize: 25, fontWeight: FontWeight.w600),
                     ),
-                    Expanded(
-                        child: Icon(
-                          Icons.star_border_purple500_sharp,
+                    onTap: () {
+                      Navigator.pushNamed(context, '/HadithDetails',
+                          arguments: All_Ahadith[index]);
+                    },
+                  ),
+                  const Row(
+                    children: [
+                      Expanded(
+                          child: Icon(
+                            Icons.star_border_purple500_sharp,
+                            color: app_colors.brown,
+                          )),
+                      Expanded(
+                        child: Divider(
+                          thickness: 2,
                           color: app_colors.brown,
-                        )),
-                  ],
-                )
-              ],
-            );
-          },),
-        )
-      ],
+                        ),
+                        flex: 2,
+                      ),
+                      Expanded(
+                          child: Icon(
+                            Icons.star_border_purple500_sharp,
+                            color: app_colors.brown,
+                          )),
+                    ],
+                  )
+                ],
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 

@@ -127,7 +127,6 @@ class _QuranTabState extends State<QuranTab> {
     "الفلق",
     "الناس"
   ];
-
   List<String> numberOfAyaat = [
     "7",
     "286",
@@ -246,157 +245,160 @@ class _QuranTabState extends State<QuranTab> {
   ];
 
   @override
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return ListView(
       children: [
-        Image.asset(
-          "assets/images/qur2an_screen_logo.png",
-          height: 277,
-        ),
-        Table(
-          border: TableBorder.all(color: app_colors.brown, width: 5),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TableRow(children: [
-              TableCell(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    "عدد الآيات",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.center,
+            Image.asset(
+              "assets/images/qur2an_screen_logo.png",
+              height: 277,
+            ),
+            Table(
+              border: TableBorder.all(color: app_colors.brown, width: 5),
+              children: [
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        "عدد الآيات",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              TableCell(
-                  child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "اسم السورة",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(fontWeight: FontWeight.w600),
-                  textAlign: TextAlign.center,
-                ),
-              )),
-            ]),
-          ],
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: SuraNames.length,
-            itemBuilder: (context, index) {
-              return Table(
-                border: TableBorder.all(color: app_colors.brown, width: 2),
+                  TableCell(
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          "اسم السورة",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.w600),
+                          textAlign: TextAlign.center,
+                        ),
+                      )),
+                ]),
+              ],
+            ),
+            SingleChildScrollView(
+              child: Column(
                 children: [
-                  TableRow(children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        child: Column(
-                          children: [
-                            GestureDetector(
-                              child: Text(
-                                numberOfAyaat[index],
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.center,
+                  for (int i = 0; i < SuraNames.length; i++)
+                    Table(
+                      border: TableBorder.all(color: app_colors.brown, width: 2),
+                      children: [
+                        TableRow(children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: InkWell(
+                              child: Column(
+                                children: [
+                                  GestureDetector(
+                                    child: Text(
+                                      numberOfAyaat[i],
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(fontWeight: FontWeight.w600),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/SuraDetails',
+                                          arguments: SuraModel(i, SuraNames[i]));
+                                    },
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Expanded(
+                                          child: Icon(
+                                            Icons.star_border_purple500_sharp,
+                                            color: app_colors.brown,
+                                          )),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Divider(
+                                          thickness: 2,
+                                          color: app_colors.brown,
+                                        ),
+                                      ),
+                                      Expanded(
+                                          child: Icon(
+                                            Icons.star_border_purple500_sharp,
+                                            color: app_colors.brown,
+                                          )),
+                                    ],
+                                  )
+                                ],
                               ),
                               onTap: () {
                                 Navigator.pushNamed(context, '/SuraDetails',
-                                    arguments:
-                                        SuraModel(index, SuraNames[index]));
+                                    arguments: SuraModel(i, SuraNames[i]));
                               },
                             ),
-                            const Row(
-                              children: [
-                                Expanded(
-                                    child: Icon(
-                                  Icons.star_border_purple500_sharp,
-                                  color: app_colors.brown,
-                                )),
-                                Expanded(
-                                  flex: 2,
-                                  child: Divider(
-                                    thickness: 2,
-                                    color: app_colors.brown,
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Icon(
-                                  Icons.star_border_purple500_sharp,
-                                  color: app_colors.brown,
-                                )),
-                              ],
-                            )
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/SuraDetails',
-                              arguments: SuraModel(index, SuraNames[index]));
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/SuraDetails',
-                              arguments: SuraModel(index, SuraNames[index]));
-                        },
-                        child: Column(
-                          children: [
-                            GestureDetector(
-                              child: Text(
-                                SuraNames[index],
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.center,
-                              ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, '/SuraDetails',
-                                    arguments:
-                                        SuraModel(index, SuraNames[index]));
+                                    arguments: SuraModel(i, SuraNames[i]));
                               },
-                            ),
-                            const Row(
-                              children: [
-                                Expanded(
-                                    child: Icon(
-                                  Icons.star_border_purple500_sharp,
-                                  color: app_colors.brown,
-                                )),
-                                Expanded(
-                                  flex: 2,
-                                  child: Divider(
-                                    thickness: 2,
-                                    color: app_colors.brown,
+                              child: Column(
+                                children: [
+                                  GestureDetector(
+                                    child: Text(
+                                      SuraNames[i],
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(fontWeight: FontWeight.w600),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/SuraDetails',
+                                          arguments: SuraModel(i, SuraNames[i]));
+                                    },
                                   ),
-                                ),
-                                Expanded(
-                                    child: Icon(
-                                  Icons.star_border_purple500_sharp,
-                                  color: app_colors.brown,
-                                )),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
+                                  const Row(
+                                    children: [
+                                      Expanded(
+                                          child: Icon(
+                                            Icons.star_border_purple500_sharp,
+                                            color: app_colors.brown,
+                                          )),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Divider(
+                                          thickness: 2,
+                                          color: app_colors.brown,
+                                        ),
+                                      ),
+                                      Expanded(
+                                          child: Icon(
+                                            Icons.star_border_purple500_sharp,
+                                            color: app_colors.brown,
+                                          )),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ]),
+                      ],
                     ),
-                  ]),
                 ],
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ],
     );
