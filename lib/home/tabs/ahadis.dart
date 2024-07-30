@@ -6,15 +6,15 @@ import '../../colors_APP.dart';
 import '../../hadith branch/hadith model.dart';
 
 class AhadisTab extends StatefulWidget {
-
-   AhadisTab({super.key});
+  AhadisTab({super.key});
 
   @override
   State<AhadisTab> createState() => _AhadisTabState();
 }
 
 class _AhadisTabState extends State<AhadisTab> {
-  List<Hadith_model>All_Ahadith = [];
+  List<Hadith_model> All_Ahadith = [];
+
   @override
   @override
   void initState() {
@@ -22,6 +22,7 @@ class _AhadisTabState extends State<AhadisTab> {
     super.initState();
     loadHadisFile();
   }
+
   @override
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,8 @@ class _AhadisTabState extends State<AhadisTab> {
             color: app_colors.brown,
           ),
           Center(
-              child: Text("Ahadeth", style: GoogleFonts.elMessiri(fontSize: 30))),
+              child:
+                  Text("Ahadeth", style:Theme.of(context).textTheme.bodySmall)),
           const Divider(
             thickness: 3,
             color: app_colors.brown,
@@ -44,15 +46,14 @@ class _AhadisTabState extends State<AhadisTab> {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: All_Ahadith.length,
-            itemBuilder:(context, index) {
+            itemBuilder: (context, index) {
               return Column(
                 children: [
                   GestureDetector(
                     child: Text(
                       All_Ahadith[index].Title,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.elMessiri(
-                          fontSize: 25, fontWeight: FontWeight.w600),
+                      style: Theme.of(context).textTheme.bodySmall
                     ),
                     onTap: () {
                       Navigator.pushNamed(context, '/HadithDetails',
@@ -63,9 +64,9 @@ class _AhadisTabState extends State<AhadisTab> {
                     children: [
                       Expanded(
                           child: Icon(
-                            Icons.star_border_purple500_sharp,
-                            color: app_colors.brown,
-                          )),
+                        Icons.star_border_purple500_sharp,
+                        color: app_colors.brown,
+                      )),
                       Expanded(
                         child: Divider(
                           thickness: 2,
@@ -75,9 +76,9 @@ class _AhadisTabState extends State<AhadisTab> {
                       ),
                       Expanded(
                           child: Icon(
-                            Icons.star_border_purple500_sharp,
-                            color: app_colors.brown,
-                          )),
+                        Icons.star_border_purple500_sharp,
+                        color: app_colors.brown,
+                      )),
                     ],
                   )
                 ],
@@ -92,21 +93,18 @@ class _AhadisTabState extends State<AhadisTab> {
   loadHadisFile() {
     rootBundle.loadString("assets/ahadeth_file/ahadeth.txt").then((onValue) {
       List<String> Ahadith = onValue.split("#");
-      for (int i = 0; i < Ahadith.length; i++){
+      for (int i = 0; i < Ahadith.length; i++) {
         String Hadith = Ahadith[i];
         List<String> HadithLines = Hadith.split("\n");
-        HadithLines.removeWhere((line) => line.trim().isEmpty); // Remove empty lines
+        HadithLines.removeWhere(
+            (line) => line.trim().isEmpty); // Remove empty lines
         String Title = HadithLines[0];
         HadithLines.removeAt(0);
         List<String> Contant = HadithLines;
         Hadith_model hadith_model = Hadith_model(Contant, Title);
         All_Ahadith.add(hadith_model);
-        setState(() {
-
-        });
+        setState(() {});
       }
     });
   }
 }
-
-

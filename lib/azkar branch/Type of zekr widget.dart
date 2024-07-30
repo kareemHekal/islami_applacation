@@ -17,7 +17,7 @@ class TypeOfZekrWidget extends StatelessWidget {
     required this.Alzkar,
     required this.label,
     required this.labelIcon,
-    this.iconSize = 35, // default size
+    this.iconSize = 20, // default size
     super.key,
   });
 
@@ -68,11 +68,7 @@ class TypeOfZekrWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
                           label,
-                          style: GoogleFonts.elMessiri(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style:  Theme.of(context).textTheme.bodySmall?.copyWith(color: app_colors.white)
                         ),
                       ),
                     ],

@@ -24,8 +24,7 @@ class RadioTab extends StatelessWidget {
               ),
               Center(
                 child: Text(" اذاعه القران الكريم",
-                    style: GoogleFonts.elMessiri(
-                        fontSize: 30, fontWeight: FontWeight.bold)),
+                    style:  Theme.of(context).textTheme.bodySmall),
               ),
               const Row(
                 children: [Spacer(),

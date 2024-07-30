@@ -14,7 +14,7 @@ class _SpalchScreenState extends State<SpalchScreen> {
 @override
   void initState() {
     Timer(Duration(seconds: 4),(){
-      Navigator.pushReplacementNamed(context, '/HomeScreen');
+      Navigator.pushReplacementNamed(context, '/HiddienDrawer');
     });
     super.initState();
   }
@@ -59,7 +59,7 @@ class _SpalchScreenState extends State<SpalchScreen> {
                 style: TextStyle(
                   fontFamily: 'PlaywriteBEVLG',
                   fontSize: value,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                   color: app_colors.brown,
                 ), // animate font size
               );

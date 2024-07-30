@@ -30,26 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Text("Islami"),
-          actions: [
-            IconButton(
-              color: Colors.white70,
-                alignment: Alignment.bottomLeft,
-                onPressed: () {
-                  showSearch(
-                    context: context,
-                    delegate: CustomSearchDelegate(),
-                  );
-                },
-                icon: const Icon(
-                  Icons.search,
-                  size: 40,
 
-                  color: app_colors.brown,
-                )),
-          ],
-          ),
           bottomNavigationBar: Container(
             color: app_colors.brown,
             child: Padding(
@@ -59,7 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTabChange: (index){
                   selectedindex = index ;
                   setState(() {
-
                   });
                 },
                 gap: 8,
@@ -71,29 +51,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   GButton(
                     icon:FlutterIslamicIcons.quran,
                     text: 'Quran',
-                      textStyle: TextStyle(fontSize: 20)
+                      textStyle: TextStyle(fontSize: 15)
                   ),
                   GButton(
                     icon:FlutterIslamicIcons.solidTasbihHand
                     ,
                     text: 'Sebha',
-                      textStyle: TextStyle(fontSize: 20)
+                      textStyle: TextStyle(fontSize: 15)
                   ),
                   GButton(
                     icon:FlutterIslamicIcons.quran2,
                     text: 'ahadith',
-                      textStyle: TextStyle(fontSize: 20)
+                      textStyle: TextStyle(fontSize: 15)
                   ),
                   GButton(
                     icon: Icons.radio,
                     text: 'Radio',
-                      textStyle: TextStyle(fontSize: 20)
+                      textStyle: TextStyle(fontSize: 15)
                   ),
                   GButton(
                     icon: FlutterIslamicIcons.prayer
                     ,
                     text: ' Azkar',
-                      textStyle: TextStyle(fontSize: 20)
+                      textStyle: TextStyle(fontSize: 15)
                   ),
                 ],
               ),
