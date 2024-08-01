@@ -1,9 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../../colors_APP.dart';
 import '../../hadith branch/hadith model.dart';
+import '../../provider/My_provider.dart';
 
 class AhadisTab extends StatefulWidget {
   AhadisTab({super.key});
@@ -23,9 +26,10 @@ class _AhadisTabState extends State<AhadisTab> {
     loadHadisFile();
   }
 
-  @override
+
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -33,14 +37,13 @@ class _AhadisTabState extends State<AhadisTab> {
           Image.asset(height: 219, "assets/images/hadeth_logo.png"),
           const Divider(
             thickness: 3,
-            color: app_colors.brown,
           ),
           Center(
               child:
-                  Text("Ahadeth", style:Theme.of(context).textTheme.bodySmall)),
+                  Text("A hadith".tr(), style:Theme.of(context).textTheme.bodySmall)),
           const Divider(
             thickness: 3,
-            color: app_colors.brown,
+
           ),
           ListView.builder(
             shrinkWrap: true,
@@ -65,19 +68,18 @@ class _AhadisTabState extends State<AhadisTab> {
                       Expanded(
                           child: Icon(
                         Icons.star_border_purple500_sharp,
-                        color: app_colors.brown,
+                          color:  app_colors.brown,
                       )),
                       Expanded(
                         child: Divider(
                           thickness: 2,
-                          color: app_colors.brown,
                         ),
                         flex: 2,
                       ),
                       Expanded(
                           child: Icon(
+                            color: app_colors.brown,
                         Icons.star_border_purple500_sharp,
-                        color: app_colors.brown,
                       )),
                     ],
                   )

@@ -1,5 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_applacation/azkar%20branch/zekr%20widget.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/My_provider.dart';
 
 class ZekrDetails extends StatefulWidget {
   List<String> Alzkar = [];
@@ -22,17 +26,20 @@ class _ZekrDetailsState extends State<ZekrDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/images/default_bg.png",
+          provider.appTheme == ThemeMode.dark
+              ? "assets/images/dark_bg.png"
+              : "assets/images/default_bg.png",
           fit: BoxFit.cover,
           height: double.infinity,
           width: double.infinity,
         ),
         Scaffold(
           appBar: AppBar(
-title: Text("اسلامي",style:  Theme.of(context).textTheme.bodySmall,),
+title: Text("app_bar_title".tr(),style:  Theme.of(context).textTheme.bodySmall,),
           ),
           body: Column(
             children: [

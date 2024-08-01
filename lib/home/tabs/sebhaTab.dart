@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_applacation/colors_APP.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/My_provider.dart';
 
 class Sebhatab extends StatefulWidget {
   const Sebhatab({super.key});
@@ -15,6 +18,7 @@ class _SebhatabState extends State<Sebhatab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Center(
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics()
@@ -27,12 +31,18 @@ class _SebhatabState extends State<Sebhatab> {
                 Stack(
                   alignment: Alignment.topCenter,
                   children: [
-                    Image.asset("assets/images/head_sebha_logo.png"),
+                    Image.asset(
+                        provider.appTheme==ThemeMode.dark?
+                            "assets/images/head_sebha_dark.png":
+                        "assets/images/head_sebha_logo.png"),
                     Padding(
                       padding: const EdgeInsets.only(top: 75),
                       child: Transform.rotate(
                           angle: angle,
-                          child: Image.asset("assets/images/body_sebha_logo.png")),
+                          child: Image.asset(
+                              provider.appTheme==ThemeMode.dark?
+                                  "assets/images/body_sebha_dark.png":
+                              "assets/images/body_sebha_logo.png")),
                     ),
                   ],
                 ),
@@ -45,25 +55,30 @@ class _SebhatabState extends State<Sebhatab> {
                 Padding(
                   padding: const EdgeInsets.only(top: 26.0),
                   child: Center(
-                    child: InkWell(
-                      onTap: () {},
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          return Container(
-                            width: constraints.maxWidth * 0.2, // 20% of the screen width
-                            decoration: BoxDecoration(
-                                color: app_colors.brown,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(18.0),
-                              child: Center(
-                                child: Text("$Counter",
-                                    style: Theme.of(context).textTheme.bodySmall),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Container(
+                          width: constraints.maxWidth * 0.2, // 20% of the screen width
+                          decoration: BoxDecoration(
+                            color: provider.appTheme == ThemeMode.dark
+                                ? Color(0xff03346E)
+                                : app_colors.brown,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Center(
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  "$Counter",
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
                               ),
                             ),
-                          );
-                        },
-                      )
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -73,14 +88,16 @@ class _SebhatabState extends State<Sebhatab> {
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0),
                       child: Center(
-                        child: InkWell(
+                        child: GestureDetector(
                           onTap: () {
                             Counter = 0;
                             setState(() {});
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: app_colors.brown,
+                                color:provider.appTheme==ThemeMode.dark?
+                                Color(0xff03346E):
+                                app_colors.brown ,
                                 borderRadius: BorderRadius.circular(30)),
                             child: Padding(
                               padding: const EdgeInsets.all(18.0),
@@ -94,13 +111,15 @@ class _SebhatabState extends State<Sebhatab> {
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0),
                       child: Center(
-                        child: InkWell(
+                        child: GestureDetector(
                           onTap: () {
                             onTap();
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: app_colors.brown,
+                                color:provider.appTheme==ThemeMode.dark?
+                                Color(0xff03346E):
+                                app_colors.brown ,
                                 borderRadius: BorderRadius.circular(30)),
                             child: Padding(
                               padding: const EdgeInsets.all(18.0),
