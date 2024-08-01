@@ -3,12 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_applacation/colors_APP.dart';
+import 'package:provider/provider.dart';
+import '../../provider/My_provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       children: [
         Expanded(flex: 4,
