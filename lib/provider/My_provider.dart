@@ -14,7 +14,6 @@ class MyProvider extends ChangeNotifier {
       else{
         appTheme=ThemeMode.light;
       }
-
         notifyListeners();
     }
   }

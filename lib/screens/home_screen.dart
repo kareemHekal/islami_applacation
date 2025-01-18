@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     icon: Icons.radio,
                     text: 'radio'.tr(),
-                    textStyle: TextStyle(fontSize: 15,color:provider.appTheme == ThemeMode.dark
+                    textStyle: TextStyle(fontSize: 15 ,color:provider.appTheme == ThemeMode.dark
                         ? app_colors.yellow
                         : app_colors.black, ),
                   ),

@@ -20,7 +20,7 @@ void main()  async {
       child: MultiProvider(
         providers: [
           // ... other providers ...
-          ChangeNotifierProvider(create: (context) => MyProvider()..getTheme()),
+          ChangeNotifierProvider(create: (context) => MyProvider()),
         ],
         child: MyApp(),
       ),
